@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #fff;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .bai-tap {
+            border: 1px solid #000;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        h1 {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #000;
+            font-size: 14px;
+        }
+        button {
+            background: #fff;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #000;
+            min-height: 40px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+     <div class="container">
+        <!-- BÀI 1: QUẢN LÝ TUYỂN SINH -->
+        <div class="bai-tap">
+            <h1>BÀI 1: QUẢN LÝ TUYỂN SINH</h1>
+            <input type="number" id="diemChuan" placeholder="Điểm chuẩn của hội đồng" step="0.25">
+            <input type="number" id="diemMon1" placeholder="Điểm môn thứ 1" step="0.25">
+            <input type="number" id="diemMon2" placeholder="Điểm môn thứ 2" step="0.25">
+            <input type="number" id="diemMon3" placeholder="Điểm môn thứ 3" step="0.25">
+            <select id="khuVuc">
+                <option value="">-- Chọn khu vực --</option>
+                <option value="A">Khu vực A</option>
+                <option value="B">Khu vực B</option>
+                <option value="C">Khu vực C</option>
+                <option value="X">Không thuộc khu vực ưu tiên</option>
+            </select>
+            <select id="doiTuong">
+                <option value="">-- Chọn đối tượng --</option>
+                <option value="1">Đối tượng 1</option>
+                <option value="2">Đối tượng 2</option>
+                <option value="3">Đối tượng 3</option>
+                <option value="0">Không thuộc đối tượng ưu tiên</option>
+            </select>
+            <button onclick="tinhDiemTuyenSinh()">Xem Kết Quả</button>
+            <div id="ketQuaTuyenSinh" class="result"></div>
+        </div>
+
+        <!-- BÀI 2: TÍNH TIỀN ĐIỆN -->
+        <div class="bai-tap">
+            <h1>BÀI 2: TÍNH TIỀN ĐIỆN</h1>
+            <input type="text" id="tenKhachHang" placeholder="Họ tên khách hàng">
+            <input type="number" id="soKw" placeholder="Số Kw điện tiêu thụ" min="0">
+            <button onclick="tinhTienDien()">Tính Tiền Điện</button>
+            <div id="ketQuaTienDien" class="result"></div>
+        </div>
+
+        <!-- BÀI 3: TÍNH THUẾ THU NHẬP CÁ NHÂN -->
+        <div class="bai-tap">
+            <h1>BÀI 3: TÍNH THUẾ THU NHẬP CÁ NHÂN</h1>
+            <input type="text" id="hoTen" placeholder="Họ và tên">
+            <input type="number" id="tongThuNhap" placeholder="Tổng thu nhập năm (triệu đồng)" min="0">
+            <input type="number" id="soNguoiPhuThuoc" placeholder="Số người phụ thuộc" min="0">
+            <button onclick="tinhThue()">Tính Thuế</button>
+            <div id="ketQuaThue" class="result"></div>
+        </div>
+
+        <!-- BÀI 4: TÍNH TIỀN CÁP -->
+        <div class="bai-tap">
+            <h1>BÀI 4: TÍNH TIỀN CÁP</h1>
+            <input type="text" id="maKhachHang" placeholder="Mã khách hàng">
+            <select id="loaiKhachHang" onchange="toggleSoKetNoi()">
+                <option value="">-- Chọn loại khách hàng --</option>
+                <option value="nhaDan">Nhà dân</option>
+                <option value="doanhNghiep">Doanh nghiệp</option>
+            </select>
+            <input type="number" id="soKetNoi" class="hidden" placeholder="Số kết nối" min="0">
+            <input type="number" id="soKenhCaoCap" placeholder="Số kênh cao cấp" min="0">
+            <button onclick="tinhTienCap()">Tính Tiền Cáp</button>
+            <div id="ketQuaCap" class="result"></div>
+        </div>
+    </div>
+    <script src="./main.js"></script>
+</body>
+</html>
